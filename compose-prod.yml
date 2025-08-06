@@ -11,5 +11,20 @@ services:
     networks:
       - connection
 
+  database: 
+    build:
+      context: .
+      target: database
+    extends:
+      file: comum.yml
+      service: database
+    volumes:
+      - db-data:/var/lib/postgresql
+    networks:
+      - connection
+
+volumes:
+  db-data:
+
 networks:
   connection:

@@ -16,5 +16,20 @@ services:
         target: /etc/nginx/nginx.conf
         read_only: true
 
+  database:
+    build:
+      context: .
+      target: database
+    extends:
+      file: comum.yml
+      service: database
+    volumes:
+      - db-data:/var/lib/postgresql
+    networks:
+      - connection
+
+volumes:
+  db-data:
+
 networks:
   connection:
