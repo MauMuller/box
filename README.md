@@ -53,3 +53,8 @@ docker run \
     oven/bun:1.2-alpine \
     bun src/db/mock.ts
 ```
+
+# Possíveis erros
+
+- Erro nas rota de `APIs`:
+    Caso a rota dê um erro estranho ou dentro do `log` de aplicação o `drizzle` der um erro, provavelmente é por conta das `migrations`, basta executar os comandos acima para resolver. 
