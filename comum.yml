@@ -1,7 +1,12 @@
 services:
   web-server:
     ports:
-      - 8080:80  database:
+      - 8080:80
+
+  app-server:
+    working_dir: /app
+
+  database:
     env_file: .env
     environment:
       TZ: America/Sao_Paulo

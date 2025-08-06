@@ -15,6 +15,23 @@ services:
         source: ./nginx.conf
         target: /etc/nginx/nginx.conf
         read_only: true
+        
+  application:
+    networks:
+      - connection
+    depends_on:
+      - web-server
+    build:
+      context: .
+      target: app-development
+    extends:
+      file: comum.yml
+      service: app-server
+    volumes:
+      - type: bind
+        source: .
+        target: /app
+        read_only: false
 
   database:
     build:

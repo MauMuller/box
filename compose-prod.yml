@@ -11,6 +11,18 @@ services:
     networks:
       - connection
 
+  application:
+    build:
+      context: .
+      target: app-prodution
+    networks:
+      - connection
+    depends_on:
+      - web-server
+    extends:
+      file: comum.yml
+      service: app-server
+
   database: 
     build:
       context: .
