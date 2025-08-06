@@ -1,0 +1,4 @@
+services:
+  web-server:
+    ports:
+      - 8080:80

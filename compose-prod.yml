@@ -1,0 +1,15 @@
+name: box-prod
+
+services:
+  web-server:
+    build:
+      context: .
+      target: web-server-prodution
+    extends:
+      file: comum.yml
+      service: web-server
+    networks:
+      - connection
+
+networks:
+  connection:
